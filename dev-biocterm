@@ -1,17 +1,39 @@
 #!/bin/sh
 
-#start new session in radian
+####################################################
+
+#FILE         : dev-biocterm
+#DESCRIPTION  : A script containing the BiocTerm setup
+
+#OPTIONS      : ---
+#REQUIREMENTS : ---
+#BUGS         : ---
+#NOTES        : ---
+
+#AUTHOR       : Mariam Arab
+#CONTACT      : ---
+#DATE CREATED : 22/12/2019
+#LAST REVISION: 23/12/2019 
+
+####################################################
+
+
+##------------------ SESSIONS --------------------
+
+# Start sessions
 biocterm="tmux -f biocterm.conf"
 command="ls"
 $command .
 $biocterm new-session -d 'vim'
 $biocterm split-window -v 'radian'
 
-#split window horizontally 
+# Split windows 
 $biocterm split-window -h
 
 $biocterm new-window 'mutt'
 $biocterm -2 attach-session -d
+
+##------------------ CONTROLS --------------------
 
 # Enable mouse mode (tmux 2.1 and above)
 set -g mouse on
