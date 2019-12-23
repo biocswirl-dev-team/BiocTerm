@@ -1,0 +1,17 @@
+#!/bin/sh
+
+#start new session in radian
+biocterm="tmux -f biocterm.conf"
+command="ls"
+$command .
+$biocterm new-session -d 'vim'
+$biocterm split-window -v 'radian'
+
+#split window horizontally 
+$biocterm split-window -h
+
+$biocterm new-window 'mutt'
+$biocterm -2 attach-session -d
+
+# Enable mouse mode (tmux 2.1 and above)
+set -g mouse on
