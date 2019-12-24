@@ -1,10 +1,11 @@
+
+<p align=center><img src="https://raw.githubusercontent.com/biocswirl-dev-team/Templates/master/graphics_templates/BiocTerm_Hex.png" height="300" width="300"></p1>
+
 # BiocTerm
 
 A highly configurable, lightweight and feature rich terminal interface with multi-language support for conducting bioinformatics. This project was the People's Choice Award for the Vancouver Bioinformatics Hackathon Hackseq2019.
 
 BiocTerm is a standalone terminal application that acts as the ideal interface for those conducting bioinformatics as it integrates our custom editor, biovim (a vim installation bundled with bio plugins), radian (an r console), and tmux (our customized terminal wrapper) in a contained instance. Our interface supports R, Bash, and vim. It is ideal for multi language workflows.
-
-<img scr="https://cdn.discordapp.com/attachments/658422882312912928/658472806153060352/unknown.png">
 
 ### Background
 
@@ -17,8 +18,9 @@ BiocTerm is a standalone terminal application that acts as the ideal interface f
 - Tmux.conf file and plugin capabilities for vim and tmux allow for high configurability depending on what your needs are 
 - Comes with our editor biovim, a powerful editor that makes reading gene files easy
 
-### Examples of use: (screenshots) 
+### Screenshots
 
+<p align=center><img src="https://cdn.discordapp.com/attachments/658422882312912928/658472806153060352/unknown.png"></p1>
 
 Please also see our bioinformatics course material that runs natively through R, ![biocswirl](https://github.com/biocswirl-dev-team/BiocSwirl). The interface (BiocTerm) and R package (BiocSwirl) can be used independently of each other but are best used together for people who are interested in making the most of their learning experience.
 
