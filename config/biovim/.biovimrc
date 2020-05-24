@@ -1,0 +1,7 @@
+# Add line numbers
+set nu
+
+# Enable biosyntax
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
