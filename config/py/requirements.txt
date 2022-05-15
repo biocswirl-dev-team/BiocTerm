@@ -1,4 +1,0 @@
-radian
-nvim
-biosyntax
-tmux
