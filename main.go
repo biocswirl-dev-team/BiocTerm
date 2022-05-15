@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "BiocTerm/cmd"
+import cmd "BiocTerm/cmd"
 
 func main() {
 	cmd.Execute()

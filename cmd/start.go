@@ -5,11 +5,7 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
-	"log"
-
 	"github.com/spf13/cobra"
-	"github.com/jroimartin/gocui"
 )
 
 // startCmd represents the start command
@@ -24,18 +20,8 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		g, err := gocui.NewGui(gocui.OutputNormal)
-		if err != nil {
-			// handle error
-		}
-		defer g.Close()
+		terminal()
 
-		// Set GUI managers and key bindings
-		// ...
-
-		if err := g.MainLoop(); err != nil && err != gocui.ErrQuit {
-			// handle error
-		}
 	},
 }
 
