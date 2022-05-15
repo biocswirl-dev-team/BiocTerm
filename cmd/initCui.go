@@ -31,7 +31,9 @@ func terminal() {
 	//	// handle error
 	//}
 
-	//Selection colours
+	//Selection settings
+	g.Highlight = true
+	g.Cursor = true
 	g.SelFgColor = gocui.ColorBlack
 	g.SelBgColor = gocui.ColorGreen
 
@@ -44,14 +46,28 @@ func terminal() {
 //GUI Manager
 func layout(g *gocui.Gui) error {
 	maxX, maxY := g.Size()
-	if v, err := g.SetView("seqView", -1, -1, int(0.2*float32(maxX)), maxY-5); err != nil {
+	if v, err := g.SetView("Directory", -1, 0, int(0.2*float32(maxX)), maxY-5); err != nil {
 		if err != gocui.ErrUnknownView {
 			return err
 		}
-		v.Title = "bioSyntax"
+
+		v.Highlight = true
+		v.SelBgColor = gocui.ColorGreen
+		v.SelFgColor = gocui.ColorBlack
+		v.Editable = true
+		v.Wrap = true
+		v.Autoscroll = true
+
+		// Placeholder text for demo
+		v.Title = "Table of Contents"
+
+		fmt.Fprintln(v, "\rGetting Started")
+		fmt.Fprintln(v, "\rCourse Directory")
+		fmt.Fprint(v, "\rSettings")
+		fmt.Fprint(v, "\rR Configuration")
 	}
 
-	if v, err := g.SetView("biocTerm", int(0.2*float32(maxX)), -1, maxX, maxY-5); err != nil {
+	if v, err := g.SetView("biocTerm", int(0.2*float32(maxX)), 0, maxX, maxY-5); err != nil {
 		if err != gocui.ErrUnknownView {
 			return err
 		}
@@ -59,18 +75,25 @@ func layout(g *gocui.Gui) error {
 		v.Highlight = true
 		v.SelBgColor = gocui.ColorGreen
 		v.SelFgColor = gocui.ColorBlack
-		fmt.Fprintln(v, "Item 1")
-		fmt.Fprintln(v, "Item 2")
-		fmt.Fprintln(v, "Item 3")
-		fmt.Fprint(v, "\rWill be")
-		fmt.Fprint(v, "deleted\rItem 4\nItem 5")
+		v.Editable = true
+		v.Wrap = true
+		v.Autoscroll = true
+
+		// Placeholder for course directory and contents options
+		fmt.Fprintln(v, "Example Text 1")
+		fmt.Fprintln(v, "Example Question?")
+		fmt.Fprintln(v, "Example Answer")
 	}
 
-	if v, err := g.SetView("cmdline", -1, maxY-5, maxX, maxY); err != nil {
+	if v, err := g.SetView("cmdline", -1, maxY-10, maxX, maxY); err != nil {
 		if err != gocui.ErrUnknownView {
 			return err
 		}
-		v.Title = "BiocTerm Input"
+		v.Title = "Input Panel"
+		v.Editable = true
+		v.Wrap = true
+
+		fmt.Fprint(v, "Welcome to BiocTerm! Click on the Table of Contents to get started.")
 	}
 	return nil
 }
